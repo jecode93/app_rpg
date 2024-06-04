@@ -1,3 +1,4 @@
+import 'package:app_rpg/shared/styled_button.dart';
 import 'package:app_rpg/shared/styled_text.dart';
 import 'package:flutter/material.dart';
 
@@ -17,11 +18,17 @@ class _HomeState extends State<Home> {
       ),
       body: Container(
         padding: const EdgeInsets.all(16),
-        child: const Column(
+        child: Column(
           children: [
-            StyledText('Character List...'),
-            StyledHeading('character list'),
-            StyledTitle('character list'),
+            const StyledText('Character List...'),
+            const StyledHeading('character list'),
+            const Expanded(
+              child: StyledTitle('character list'),
+            ),
+            StyledButton(
+              child: const StyledHeading('Create new'),
+              onPressed: () {},
+            )
           ],
         ),
       ),
