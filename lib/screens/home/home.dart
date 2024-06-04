@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your characters'),
+        title: const StyledTitle('Your characters'),
       ),
       body: Container(
         padding: const EdgeInsets.all(16),
