@@ -1,3 +1,4 @@
+import 'package:app_rpg/theme.dart';
 import 'package:flutter/material.dart';
 
 class CharacterCard extends StatelessWidget {
@@ -13,6 +14,16 @@ class CharacterCard extends StatelessWidget {
         child: Row(
           children: [
             Text(character),
+            const Expanded(
+              child: SizedBox(),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.arrow_forward,
+                color: AppColors.textColor,
+              ),
+            ),
           ],
         ),
       ),
