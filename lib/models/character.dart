@@ -1,4 +1,6 @@
-class Character {
+import 'package:app_rpg/models/stats.dart';
+
+class Character with Stats {
   // constructor
   Character({
     required this.name,
