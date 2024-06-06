@@ -14,6 +14,9 @@ class Character with Stats {
   final String id;
   bool _isFav = false;
 
+  // getters
+  bool get isFave => _isFav;
+  
   void toglleIsFav() {
     _isFav = !_isFav;
   }
