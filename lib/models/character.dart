@@ -1,3 +1,4 @@
+import 'package:app_rpg/models/skill.dart';
 import 'package:app_rpg/models/stats.dart';
 import 'package:app_rpg/models/vocation.dart';
 
@@ -11,6 +12,7 @@ class Character with Stats {
   });
 
   // fields
+  final Set<Skill> skills = {};
   final Vocation vocation;
   final String name;
   final String slogan;
@@ -22,5 +24,10 @@ class Character with Stats {
 
   void toglleIsFav() {
     _isFav = !_isFav;
+  }
+
+  void updateSkill(Skill skill) {
+    skills.clear();
+    skills.add(skill);
   }
 }
