@@ -1,3 +1,4 @@
+import 'package:app_rpg/models/character.dart';
 import 'package:app_rpg/screens/home/character_card.dart';
 import 'package:app_rpg/shared/styled_button.dart';
 import 'package:app_rpg/shared/styled_text.dart';
@@ -11,7 +12,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List characters = ['mario', 'luigi', 'peach', 'toad', 'bowser', 'koopa'];
 
   @override
   Widget build(BuildContext context) {
