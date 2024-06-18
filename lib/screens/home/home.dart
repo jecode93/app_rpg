@@ -18,6 +18,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: const StyledTitle('Your characters'),
+        centerTitle: true,
       ),
       body: Container(
         padding: const EdgeInsets.all(16),
