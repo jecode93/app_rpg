@@ -79,7 +79,7 @@ class _CreateState extends State<Create> {
                 cursorColor: AppColors.textColor,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.person_2),
-                  label: StyledText('Charater name'),
+                  label: StyledText('Character name'),
                 ),
               ),
               const SizedBox(height: 20),
@@ -91,7 +91,7 @@ class _CreateState extends State<Create> {
                 cursorColor: AppColors.textColor,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.chat),
-                  label: StyledText('Charater slogan'),
+                  label: StyledText('Character slogan'),
                 ),
               ),
               const SizedBox(height: 30),
