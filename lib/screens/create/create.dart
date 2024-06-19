@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:app_rpg/models/vocation.dart';
 import 'package:app_rpg/screens/create/vocation_card.dart';
 import 'package:app_rpg/shared/styled_button.dart';
@@ -22,6 +24,15 @@ class _CreateState extends State<Create> {
     _nameController.dispose();
     _sloganController.dispose();
     super.dispose();
+  }
+
+  // Handling vocation selection
+  Vocation selectedVocation = Vocation.junkie;
+
+  void updateVocation(Vocation vocation) {
+    setState(() {
+      selectedVocation = vocation;
+    });
   }
 
   // Submit Handler
@@ -112,10 +123,26 @@ class _CreateState extends State<Create> {
               const SizedBox(height: 30),
 
               // Vocation cards
-              const VocationCard(vocation: Vocation.junkie),
-              const VocationCard(vocation: Vocation.ninja),
-              const VocationCard(vocation: Vocation.raider),
-              const VocationCard(vocation: Vocation.wizard),
+              VocationCard(
+                selected: selectedVocation == Vocation.junkie,
+                vocation: Vocation.junkie,
+                onTap: updateVocation,
+              ),
+              VocationCard(
+                selected: selectedVocation == Vocation.ninja,
+                vocation: Vocation.ninja,
+                onTap: updateVocation,
+              ),
+              VocationCard(
+                selected: selectedVocation == Vocation.raider,
+                vocation: Vocation.raider,
+                onTap: updateVocation,
+              ),
+              VocationCard(
+                selected: selectedVocation == Vocation.wizard,
+                vocation: Vocation.wizard,
+                onTap: updateVocation,
+              ),
 
               Center(
                 child: StyledButton(
