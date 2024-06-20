@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:app_rpg/models/character.dart';
 import 'package:app_rpg/models/vocation.dart';
 import 'package:app_rpg/screens/create/vocation_card.dart';
 import 'package:app_rpg/shared/styled_button.dart';
@@ -7,6 +8,9 @@ import 'package:app_rpg/shared/styled_text.dart';
 import 'package:app_rpg/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:uuid/uuid.dart';
+
+var uuid = const Uuid();
 
 class Create extends StatefulWidget {
   const Create({super.key});
@@ -38,17 +42,19 @@ class _CreateState extends State<Create> {
   // Submit Handler
   void handleSubmit() {
     if (_nameController.text.trim().isEmpty) {
-      print('Name must not be empty.');
+      // show error dialog
       return;
     }
 
     if (_sloganController.text.trim().isEmpty) {
-      print('Slogan must not be empty.');
+      // show error dialog
       return;
     }
-
-    print(_nameController.text);
-    print(_sloganController.text);
+    characters.add(Character(
+        name: _nameController.text.trim(),
+        slogan: _sloganController.text.trim(),
+        vocation: selectedVocation,
+        id: uuid.v4()));
   }
 
   @override
@@ -143,6 +149,21 @@ class _CreateState extends State<Create> {
                 vocation: Vocation.wizard,
                 onTap: updateVocation,
               ),
+
+              // Goog luck message
+              Center(
+                child: Icon(
+                  Icons.code,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+              const Center(
+                child: StyledHeading('Good Luck.'),
+              ),
+              const Center(
+                child: StyledText('And enjoy the journey....'),
+              ),
+              const SizedBox(height: 30),
 
               Center(
                 child: StyledButton(
