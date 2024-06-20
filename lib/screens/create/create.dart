@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:app_rpg/models/character.dart';
 import 'package:app_rpg/models/vocation.dart';
 import 'package:app_rpg/screens/create/vocation_card.dart';
+import 'package:app_rpg/screens/home/home.dart';
 import 'package:app_rpg/shared/styled_button.dart';
 import 'package:app_rpg/shared/styled_text.dart';
 import 'package:app_rpg/theme.dart';
@@ -51,10 +52,17 @@ class _CreateState extends State<Create> {
       return;
     }
     characters.add(Character(
-        name: _nameController.text.trim(),
-        slogan: _sloganController.text.trim(),
-        vocation: selectedVocation,
-        id: uuid.v4()));
+      name: _nameController.text.trim(),
+      slogan: _sloganController.text.trim(),
+      vocation: selectedVocation,
+      id: uuid.v4(),
+    ));
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (ctx) => const Home(),
+        ));
   }
 
   @override
