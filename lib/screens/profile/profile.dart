@@ -1,4 +1,5 @@
 import 'package:app_rpg/models/character.dart';
+import 'package:app_rpg/screens/profile/stats_table.dart';
 import 'package:app_rpg/shared/styled_text.dart';
 import 'package:app_rpg/theme.dart';
 import 'package:flutter/material.dart';
@@ -77,9 +78,16 @@ class Profile extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
             // Stats & skills
-
+            Container(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  StatsTable(character)
+                ],
+              ),
+            )
             // Save button
           ],
         ),
