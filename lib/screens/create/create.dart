@@ -1,8 +1,7 @@
-import 'dart:ffi';
-
 import 'package:app_rpg/models/character.dart';
 import 'package:app_rpg/models/vocation.dart';
 import 'package:app_rpg/screens/create/vocation_card.dart';
+import 'package:app_rpg/screens/home/home.dart';
 import 'package:app_rpg/shared/styled_button.dart';
 import 'package:app_rpg/shared/styled_text.dart';
 import 'package:app_rpg/theme.dart';
@@ -42,19 +41,61 @@ class _CreateState extends State<Create> {
   // Submit Handler
   void handleSubmit() {
     if (_nameController.text.trim().isEmpty) {
-      // show error dialog
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const StyledHeading('Missing character name'),
+            content: const StyledText(
+                'Every good RPG character need a great name...'),
+            actions: [
+              StyledButton(
+                  child: const StyledHeading('close'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
+
       return;
     }
 
     if (_sloganController.text.trim().isEmpty) {
-      // show error dialog
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const StyledHeading('Missing slogan'),
+            content: const StyledText('Remember to add a catchy slogan...'),
+            actions: [
+              StyledButton(
+                  child: const StyledHeading('close'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
+
       return;
     }
     characters.add(Character(
-        name: _nameController.text.trim(),
-        slogan: _sloganController.text.trim(),
-        vocation: selectedVocation,
-        id: uuid.v4()));
+      name: _nameController.text.trim(),
+      slogan: _sloganController.text.trim(),
+      vocation: selectedVocation,
+      id: uuid.v4(),
+    ));
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (ctx) => const Home(),
+        ));
   }
 
   @override

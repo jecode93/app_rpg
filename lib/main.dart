@@ -1,4 +1,3 @@
-import 'package:app_rpg/screens/create/create.dart';
 import 'package:app_rpg/screens/home/home.dart';
 import 'package:app_rpg/theme.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: primaryTheme,
-      home: const Create(),
+      home: const Home(),
     );
   }
 }

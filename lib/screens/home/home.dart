@@ -1,4 +1,5 @@
 import 'package:app_rpg/models/character.dart';
+import 'package:app_rpg/screens/create/create.dart';
 import 'package:app_rpg/screens/home/character_card.dart';
 import 'package:app_rpg/shared/styled_button.dart';
 import 'package:app_rpg/shared/styled_text.dart';
@@ -12,7 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +34,13 @@ class _HomeState extends State<Home> {
             ),
             StyledButton(
               child: const StyledHeading('Create new'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (ctx) => const Create(),
+                    ));
+              },
             )
           ],
         ),
