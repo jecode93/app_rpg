@@ -39,12 +39,14 @@ class _SkillListState extends State<SkillList> {
             Row(
               children: availableSkills.map(
                 (skill) {
-                  return Container(
-                    margin: const EdgeInsets.all(5),
-                    padding: const EdgeInsets.all(2),
-                    child: Image.asset(
-                      'assets/img/skills/${skill.image}',
-                      width: 70,
+                  return Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(2),
+                      child: Image.asset(
+                        'assets/img/skills/${skill.image}',
+                        width: 70,
+                      ),
                     ),
                   );
                 },
