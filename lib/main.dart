@@ -1,9 +1,16 @@
 import 'package:app_rpg/screens/home/home.dart';
+import 'package:app_rpg/services/character_store.dart';
 import 'package:app_rpg/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CharacterStore(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
