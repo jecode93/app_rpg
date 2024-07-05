@@ -1,5 +1,4 @@
 import 'package:app_rpg/models/character.dart';
-import 'package:app_rpg/models/vocation.dart';
 import 'package:app_rpg/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +15,10 @@ class CharacterStore extends ChangeNotifier {
   }
 
   // save (update) character
-
+  Future<void> saveCharacter(Character character) async {
+    await FirestoreService.updateCharacter(character);
+    return;
+  }
   // remove character
 
   // initially fetch characters
