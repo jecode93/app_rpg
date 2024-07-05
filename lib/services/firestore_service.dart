@@ -27,5 +27,9 @@ class FirestoreService {
       'isFav': character.isFav,
     });
   }
+
   // delete a character
+  static Future<void> deleteCharacter(Character character) async {
+    await ref.doc(character.id).delete();
+  }
 }
