@@ -1,5 +1,6 @@
 import 'package:app_rpg/models/character.dart';
 import 'package:app_rpg/models/vocation.dart';
+import 'package:app_rpg/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
 class CharacterStore extends ChangeNotifier {
@@ -27,6 +28,7 @@ class CharacterStore extends ChangeNotifier {
 
   // add character
   void addCharacter(Character character) {
+    FirestoreService.addCharacter(character);
     _characters.add(character);
     notifyListeners();
   }

@@ -7,4 +7,15 @@ class FirestoreService {
             fromFirestore: Character.fromFirestore,
             toFirestore: (Character c, _) => c.toFirestore(),
           );
+
+  // add a new character
+  static Future<void> addCharacter(Character character) async {
+    await ref.doc(character.id).set(character);
+  }
+
+  // get characters once
+
+  // update a character
+
+  // delete a character
 }
