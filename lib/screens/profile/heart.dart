@@ -1,4 +1,5 @@
 import 'package:app_rpg/models/character.dart';
+import 'package:app_rpg/theme.dart';
 import 'package:flutter/material.dart';
 
 class Heart extends StatefulWidget {
@@ -47,7 +48,9 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
           },
           icon: Icon(
             Icons.favorite,
-            color: Colors.grey[800],
+            color: widget.character.isFav
+                ? AppColors.primaryAccent
+                : Colors.grey[800],
             size: _sizeAnimation.value,
           ),
         );
