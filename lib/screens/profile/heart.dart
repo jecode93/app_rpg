@@ -18,7 +18,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(microseconds: 200),
+      duration: const Duration(milliseconds: 200),
     );
 
     _sizeAnimation = TweenSequence([
@@ -36,14 +36,22 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        widget.character.toggleIsFav();
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        return IconButton(
+          onPressed: () {
+            _controller.reset();
+            _controller.forward();
+            widget.character.toggleIsFav();
+          },
+          icon: Icon(
+            Icons.favorite,
+            color: Colors.grey[800],
+            size: _sizeAnimation.value,
+          ),
+        );
       },
-      icon: Icon(
-        Icons.favorite,
-        color: Colors.grey[800],
-      ),
     );
   }
 }
