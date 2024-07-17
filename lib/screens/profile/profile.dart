@@ -1,4 +1,5 @@
 import 'package:app_rpg/models/character.dart';
+import 'package:app_rpg/screens/profile/heart.dart';
 import 'package:app_rpg/screens/profile/skill_list.dart';
 import 'package:app_rpg/screens/profile/stats_table.dart';
 import 'package:app_rpg/services/character_store.dart';
@@ -54,6 +55,7 @@ class Profile extends StatelessWidget {
               ),
             ),
 
+            Heart(character: character),
             // Weapon, ability and slogan
             const SizedBox(
               height: 20,
